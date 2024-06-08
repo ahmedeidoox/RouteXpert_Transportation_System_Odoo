@@ -1,0 +1,21 @@
+<odoo>
+
+
+
+
+
+
+    <!-- Vehicles Action Window -->
+    <record id="vehicles_action_window" model="ir.actions.act_window">
+        <field name="name">Vehicles Information </field>
+        <field name="res_model">transport.vehicle</field>
+    </record>
+
+
+    <menuitem id="vehicles_information_menu"
+              name="Vehicles"
+              parent="vehicles_menu"
+              action="vehicles_action_window"
+    />
+
+</odoo>

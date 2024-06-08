@@ -1,0 +1,22 @@
+<odoo>
+
+
+
+
+
+
+    <!-- Drivers Action Window -->
+
+    <record id="drivers_action_window" model="ir.actions.act_window">
+        <field name="name">Drivers Information </field>
+        <field name="res_model">res.users</field>
+    </record>
+
+
+    <menuitem id="drivers_menu"
+              name="Information"
+              parent="drivers_menu"
+              action="drivers_action_window"
+    />
+
+</odoo>

@@ -1,0 +1,120 @@
+<odoo>
+
+    <!-- Driver Application Form View -->
+    <record id="drivers_application_form_view" model="ir.ui.view">
+        <field name="name">Drivers Application Form View</field>
+        <field name="model">transport.driver.application</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="accept_driver_application" string="Accept" type="object" class="btn-primary"
+                            invisible="status == 'accepted'"/>
+                    <button name="reject_driver_application" string="Reject" type="object" class="btn-primary"
+                            invisible="status == 'rejected'"/>
+                    <field name="status" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Personal Information">
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="phone"/>
+
+                        </group>
+                        <group string="Verification Information">
+                            <field name="license_number"/>
+                            <field name="national_id"/>
+                            <field name="creation_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Verification Documents">
+                            <field name="verification_documents">
+                                <tree>
+                                    <field name="document_type"/>
+                                    <field name="document_data" widget='image' class="resize_image"/>
+                                </tree>
+                            </field>
+
+                        </page>
+                    </notebook>
+
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <!-- Driver Application Tree View -->
+    <record id="drivers_application_tree_view" model="ir.ui.view">
+        <field name="name">Drivers Application Tree View</field>
+        <field name="model">transport.driver.application</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="license_number"/>
+                <field name="national_id"/>
+                <field name="status" widget="badge" decoration-success="status == 'accepted'" decoration-info="status == 'pending'" decoration-danger="status == 'rejected'"  />
+
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- Driver Application Search View -->
+    <record id="drivers_application_search_view" model="ir.ui.view">
+        <field name="name">Drivers Application Search View</field>
+        <field name="model">transport.driver.application</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="license_number"/>
+                <field name="national_id"/>
+            </search>
+        </field>
+    </record>
+
+
+    <!-- Driver Application Verification Documents Form View-->
+    <record id="drivers_verification_documents_form_view" model="ir.ui.view">
+        <field name="name">>Driver Applications Verification Documents Form View</field>
+        <field name="model">transport.driver.verification.document</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="document_type" />
+                        <field name="document_data" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Driver Application Verification Documents Action Window -->
+    <record id="drivers_verification_documents_action_window" model="ir.actions.act_window">
+        <field name="name">Driver Applications Verification Documents</field>
+        <field name="res_model">transport.driver.verification.document</field>
+    </record>
+
+
+    <!-- Driver Application Action Window -->
+
+    <record id="drivers_application_action_window" model="ir.actions.act_window">
+        <field name="name">Driver Applications</field>
+        <field name="res_model">transport.driver.application</field>
+    </record>
+
+
+    <menuitem id="driver_applications_menu"
+              name="Applications"
+              parent="drivers_menu"
+              action="drivers_application_action_window"
+    />
+
+</odoo>

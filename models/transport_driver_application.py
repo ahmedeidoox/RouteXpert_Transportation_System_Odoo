@@ -6,6 +6,7 @@ class TransportDriverApplication(models.Model):
     _description =  "transport driver application"
 
     name = fields.Char(string='Name', required=True)
+    active = fields.Boolean(default=True)
     email = fields.Char(string='Email', required=True)
     phone = fields.Char(string='Phone', required=True)
     license_number = fields.Char(string='License Number', required=True)

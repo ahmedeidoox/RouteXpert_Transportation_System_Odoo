@@ -1,0 +1,71 @@
+<odoo>
+    <template id="drivers_applications_page_template" name="Drivers Application Form">
+        <t t-call="website.layout">
+            <div class="container">
+                <h2 class="heading_statement">Drivers Application</h2>
+                <form action="/drivers/application/submit" method="post">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" class="form-control" required="required"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" class="form-control" required="required"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" name="phone" id="phone" class="form-control" required="required"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="license_number">License Number</label>
+                        <input type="text" name="license_number" id="license_number" class="form-control"
+                               required="required"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="national_id">National ID</label>
+                        <input type="text" name="national_id" id="national_id" class="form-control"
+                               required="required"/>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </t>
+    </template>
+
+
+    <template id="drivers_applications_verification_template" name="Verification Documents">
+        <t t-call="website.layout">
+            <div class="container">
+                <h3 class="heading_statement">Submit Your Verification Documents</h3>
+                <form action="/drivers/application/verification/submit" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="driver_id" t-att-value="driver_id"/>
+                    <div class="form-group">
+                        <label for="national_id_document">Upload National ID Document</label>
+                        <input type="file" name="national_id_document" id="national_id_document" class="form-control"
+                               required="required"/>
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <label for="driving_license_document">Upload Driving License Document</label>
+                        <input type="file" name="driving_license_document" id="driving_license_document"
+                               class="form-control" required="required"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </t>
+    </template>
+
+
+    <template id="driver_application_thank_you" name="Driver Application Thank You">
+        <t t-call="website.layout">
+            <div class="submitting_message">
+                <h2>Thank You!</h2>
+                <p>Your application has been submitted. We will review it and get back to you shortly.</p>
+            </div>
+        </t>
+    </template>
+
+</odoo>

@@ -1,13 +1,45 @@
 <odoo>
 
+    <!-- Vehicles Form View -->
+    <record id="vehicles_form_view" model="ir.ui.view">
+        <field name="name">Vehicles Form View</field>
+        <field name="model">transport.vehicle</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <h1>
+                        <field name="unique_iden"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="plate_number" placeholder="ex.123AB"/>
+                            <field name="vehicle_type_id"/>
+                            <field name="driver_id" placeholder="Responsible Driver.."/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-
-
+    <!-- Vehicles Tree View -->
+    <record id="vehicles_tree_view" model="ir.ui.view">
+        <field name="name">Vehicles Tree View</field>
+        <field name="model">transport.vehicle</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="unique_iden"/>
+                <field name="plate_number"/>
+                <field name="vehicle_type_id"/>
+                <field name="driver_id"/>
+            </tree>
+        </field>
+    </record>
 
 
     <!-- Vehicles Action Window -->
     <record id="vehicles_action_window" model="ir.actions.act_window">
-        <field name="name">Vehicles Information </field>
+        <field name="name">Vehicles Information</field>
         <field name="res_model">transport.vehicle</field>
     </record>
 

@@ -1,5 +1,5 @@
 from .... import models,fields
-
+import string,random
 
 class TransportDriverApplication(models.Model):
     _name = "transport.driver.application"
@@ -20,19 +20,32 @@ class TransportDriverApplication(models.Model):
 
     verification_documents = fields.One2many("transport.driver.verification.document","driver_id")
 
-
+    def generate_random_password(self, length=12):
+        chars = string.ascii_letters + string.digits + string.punctuation
+        return ''.join(random.choice(chars) for _ in range(length))
 
     def accept_driver_application(self):
         self.status = 'accepted'
-        self.env["transport.driver"].create({
-            "name":self.name,
-            "email":self.email,
-            "phone":self.phone,
-            "license_number":self.license_number,
-            "national_id":self.national_id,
-        })
+        portal_group = self.env.ref("base.group_portal")
+        transport_driver_group = self.env.ref('transport_system.transport_system_driver_access')  # Reference to the Transport Driver Access group
+        password = self.generate_random_password()
+        print(password)
+        user_vals = {
+            "name": self.name,
+            "email": self.email,
+            "login": self.email,  # Using email as login
+            "phone": self.phone,
+            "license_number": self.license_number,
+            "national_id": self.national_id,
+            "groups_id": [(6, 0, [portal_group.id, transport_driver_group.id])],  # Assign the portal group and Transport Driver Access group
+            "password":password,
+        }
+        self.env['res.users'].sudo().create(user_vals)
+
     def reject_driver_application(self):
         self.status = 'rejected'
+
+
 class TransportDriverVerificationDocuments(models.Model):
     _name = "transport.driver.verification.document"
     _description = "transport driver verification document"

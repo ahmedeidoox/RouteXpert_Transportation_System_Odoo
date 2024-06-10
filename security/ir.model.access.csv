@@ -2,7 +2,8 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 
 access_transport_driver_application,access_transport_driver_application,model_transport_driver_application,,1,1,1,1
 access_transport_driver_verification_document,access_transport_driver_verification_document,model_transport_driver_verification_document,,1,1,1,1
-access_transport_vehicle,access_transport_vehicle,model_transport_vehicle,,1,1,1,1
+access_transport_vehicle,access_transport_vehicle,model_transport_vehicle,transport_system.transport_system_manager_access,1,1,1,1
+access_transport_vehicle_type,access_transport_vehicle_type,model_transport_vehicle_type,,1,1,1,1
 
 
 

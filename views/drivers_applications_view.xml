@@ -8,9 +8,9 @@
             <form>
                 <header>
                     <button name="accept_driver_application" string="Accept" type="object" class="btn-primary"
-                            invisible="status == 'accepted'"/>
+                            invisible="status == 'accepted' or status == 'rejected' "/>
                     <button name="reject_driver_application" string="Reject" type="object" class="btn-primary"
-                            invisible="status == 'rejected'"/>
+                            invisible="status == 'rejected' or status == 'accepted'"/>
                     <field name="status" widget="statusbar"/>
                 </header>
                 <sheet>

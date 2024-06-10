@@ -2,4 +2,5 @@
     <menuitem id="routexpert_root_menu" name="RouteXpert"  />
     <menuitem id="drivers_menu" name="Drivers" parent="routexpert_root_menu"  sequence="1"/>
     <menuitem id="vehicles_menu" name="Vehicles" parent="routexpert_root_menu" sequence="2"/>
+    <menuitem id="configuration_menu" name="Configuration" parent="routexpert_root_menu" sequence="3"/>
 </odoo>

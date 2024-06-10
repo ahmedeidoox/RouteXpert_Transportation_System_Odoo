@@ -1,0 +1,47 @@
+<odoo>
+
+    <!-- Vehicles Types Form View -->
+    <record id="vehicles_type_form_view" model="ir.ui.view">
+        <field name="name">Vehicles Type Form View</field>
+        <field name="model">transport.vehicle.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="vehicle_type"/>
+                        <field name="capacity"/>
+                        <field name="color" widget="color_picker"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vehicles Types Tree View -->
+    <record id="vehicles_types_tree_view" model="ir.ui.view">
+        <field name="name">Vehicles Types Tree View</field>
+        <field name="model">transport.vehicle.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="vehicle_type"/>
+                <field name="capacity"/>
+                <field name="color" widget="color_picker"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- Vehicles Type Action Window -->
+    <record id="vehicles_types_action_window" model="ir.actions.act_window">
+        <field name="name">Vehicles Types</field>
+        <field name="res_model">transport.vehicle.type</field>
+    </record>
+
+
+    <menuitem id="vehicles_types_menu"
+              name="Vehicles Type"
+              parent="configuration_menu"
+              action="vehicles_types_action_window"
+    />
+
+</odoo>

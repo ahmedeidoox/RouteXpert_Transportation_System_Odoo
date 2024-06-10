@@ -1,0 +1,15 @@
+<odoo>
+    <record id="vehicle_bus_seq_generator" model="ir.sequence">
+        <field name="name">Bus Sequence Generator</field>
+        <field name="code">bus.seq</field>
+        <field name="prefix">BUS</field>
+        <field name="padding">4</field>
+    </record>
+
+    <record id="vehicle_car_seq_generator" model="ir.sequence">
+        <field name="name">Car Sequence Generator</field>
+        <field name="code">car.seq</field>
+        <field name="prefix">CAR</field>
+        <field name="padding">4</field>
+    </record>
+</odoo>

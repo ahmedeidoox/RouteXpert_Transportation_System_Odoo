@@ -1,0 +1,17 @@
+<odoo>
+    <record id="transport_system_security_groups_category" model="ir.module.category">
+        <field name="name">Transport System Categories</field>
+    </record>
+
+
+    <record id="transport_system_manager_access" model="res.groups">
+        <field name="name">Transport Manager Access</field>
+        <field name="category_id" ref="transport_system_security_groups_category"/>
+    </record>
+
+
+    <record id="transport_system_driver_access" model="res.groups">
+        <field name="name">Transport Driver Access</field>
+        <field name="category_id" ref="transport_system_security_groups_category"/>
+    </record>
+</odoo>
